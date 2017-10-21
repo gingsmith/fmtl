@@ -27,11 +27,6 @@ for trial = 1:ntrials
     rng(trial); 
     [Xtrain, Ytrain, Xtest, Ytest] = split_data(X, Y, training_percent);
 
-    %% constant baseline
-    opts.type = 'constant';
-    rmse_constant = baselines(Xtrain, Ytrain, Xtest, Ytest, 0, opts);
-    err_constant(trial) = rmse_constant;
-
     %% global model
     opts.type = 'global';
     opts.max_sdca_iters = 500;
