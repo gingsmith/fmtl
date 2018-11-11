@@ -34,7 +34,7 @@ for iter=1:opts.max_sdca_iters
     
     % break if less than tol
     preds = y .* (X * w);
-    primal_new = mean(max(0.0, 1.0 - preds)) + lambda * (w' * w);
+    primal_new = mean(max(0.0, 1.0 - preds)) + (lambda / 2.0) * (w' * w);
     if(abs(primal_old - primal_new) < opts.tol)
         break;
     end
